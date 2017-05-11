@@ -191,4 +191,14 @@ Some useful state functions.
     sudo salt 'edi1' state.apply edi1/batch-cron-dell-asp
 
         Apply only the batch-cron-dell-asp.sls to edi 1. must specify edi1/<state file> becasue salt always starts
-        from it's file root which is defined in `/etc/salt/master` which for us is `/srv/salt/base`
+        from it's file root which is defined in /etc/salt/master which for us is /srv/salt/base
+
+    sudo salt 'edi1' state.sls_id /home/scripts/dell_asp_exp_status_request.sh edi1/batch-cron-dell-asp
+
+        Run one specific state given a state id and a module.
+
+----
+
+Pillars
+
+=======
