@@ -179,3 +179,14 @@ The following ensures nginx is installed, user is present, and the service is ru
       - home: /usr/share/nginx
       - uid: 498
       - gid: 499
+
+Some useful state functions.
+
+  ::
+
+    sudo salt '*' state.highstate
+        Run the highstate. Meaning for every minion build and push the entire state tree to matching minions.
+    sudo salt 'edi1' state.apply edi1/batch-cron-dell-asp
+        Apply only the batch-cron-dell-asp.sls to edi 1 and 2. must specify edi1/<state file> becasue salt always starts
+        from it's file root which is defined in `/etc/salt/master` which for us is `/srv/salt/base`
+    
