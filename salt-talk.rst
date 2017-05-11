@@ -1,6 +1,7 @@
 :data-transition-duration: 1000
 :skip-help: false
 :auto-console: true
+:css: css/presentation.css
 
 .. title: SaltStack
 
@@ -52,11 +53,29 @@ It is basically salt's way of authenticating a minion. On inital connection, the
 public key so on the salt master we have to manually accept/reject the minion's key.\*
 
 The salt-key command has a lot of options, but the ones I use the most:
-  * sudo salt-key list - list all accepted, rejected, denied, and unaccepted keys.
-  * sudo salt-key -A - accept all unaccepted keys.
-  * sudo salt-key -a <key> - accept <key>.
-  * sudo salt-key -r <reject> - reject <reject>.
-  * sudo salt-key -d <delete> - delete the public key of <delete>
+
+    -l ARG, --list=ARG  List the public keys. The args "pre", "un", and
+                        "unaccepted" will list unaccepted/unsigned keys. "acc"
+                        or "accepted" will list accepted/signed keys. "rej" or
+                        "rejected" will list rejected keys. "den" or "denied"
+                        will list denied keys. Finally, "all" will list all
+                        keys.
+    -L, --list-all      List all public keys. (Deprecated: use "--list all")
+    -a ACCEPT, --accept=ACCEPT
+                        Accept the specified public key (use --include-all to
+                        match rejected keys in addition to pending keys).
+                        Globs are supported.
+    -A, --accept-all    Accept all pending keys
+    -r REJECT, --reject=REJECT
+                        Reject the specified public key (use --include-all to
+                        match accepted keys in addition to pending keys).
+                        Globs are supported.
+    -p PRINT, --print=PRINT
+                        Print the specified public key
+    -P, --print-all     Print all public keys
+    -d DELETE, --delete=DELETE
+                        Delete the specified key. Globs are supported.
+
 
 \* NOTE: You don't have to do this on salt2 (thin client salt master) because auto key accept is turned on. Though, if
 rebuild a machine you may have to delete the thin client's public key and have it re-added to the list.
@@ -77,7 +96,9 @@ What's going on here?
 ---------------------
     Well, from the salt-master we are pushing ping state from the test module to the minion and asking for it's response.
 
-    More information on the test module here https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.test.html
+    More information on the test module here_.
+
+.. _here: https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.test.html
 
 salt vs salt-call
 -----------------
@@ -95,9 +116,12 @@ Minion Targeting (cont'd)
   *"Targeting minions is specifying which minions should run a command or execute a state by matching against
   hostnames, or system information, or defined groups, or even combinations thereof."*
 
-There are lots of ways to target your minions, https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
 
-But, the most common method is using shell-style globbing targeting minions by minion id.
+There are lots of ways to target_ your minions, but the most common method is using `shell-style`
+globbing targeting minions by minion id.
+
+.. _target: https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
+
 
 Ex.
 
