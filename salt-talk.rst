@@ -54,27 +54,23 @@ public key so on the salt master we have to manually accept/reject the minion's 
 
 The salt-key command has a lot of options, but the ones I use the most:
 
-    -l ARG, --list=ARG  List the public keys. The args "pre", "un", and
+    -l ARG              List the public keys. The args "pre", "un", and
                         "unaccepted" will list unaccepted/unsigned keys. "acc"
                         or "accepted" will list accepted/signed keys. "rej" or
                         "rejected" will list rejected keys. "den" or "denied"
                         will list denied keys. Finally, "all" will list all
                         keys.
-    -L, --list-all      List all public keys. (Deprecated: use "--list all")
-    -a ACCEPT, --accept=ACCEPT
-                        Accept the specified public key (use --include-all to
+    -L                  List all public keys. (Deprecated: use "--list all")
+    -a ACCEPT           Accept the specified public key (use --include-all to
                         match rejected keys in addition to pending keys).
                         Globs are supported.
-    -A, --accept-all    Accept all pending keys
-    -r REJECT, --reject=REJECT
-                        Reject the specified public key (use --include-all to
+    -A                  Accept all pending keys
+    -r REJECT           Reject the specified public key (use --include-all to
                         match accepted keys in addition to pending keys).
                         Globs are supported.
-    -p PRINT, --print=PRINT
-                        Print the specified public key
-    -P, --print-all     Print all public keys
-    -d DELETE, --delete=DELETE
-                        Delete the specified key. Globs are supported.
+    -p PRINT            Print the specified public key
+    -P                  Print all public keys
+    -d DELETE           Delete the specified key. Globs are supported.
 
 
 \* NOTE: You don't have to do this on salt2 (thin client salt master) because auto key accept is turned on. Though, if
@@ -141,3 +137,45 @@ Ex.
   sudo salt 'edi1,edi2,vb1,reports1' test.ping
 
 ----
+
+States and SLS files
+====================
+
+  *"The core of the Salt State system is the SLS, or SaLt State file. The SLS is a representation of the state in
+  which a system should be in, and is set up to contain this data in a simple format. This is often called configuration
+  management."*
+
+It's just data.
+---------------
+
+SLS files are just data representations made up of lists, dictionaries, strings and numbers.
+
+These sls files are compiled together to form a state tree.
+
+A part (very small) of state tree for edi1 looks as follows:
+  top.sls
+    edi1/init.sls
+        batch-cron-dell-asp.sls
+
+----
+
+Um... Ok so what?
+=================
+
+  Well becasue it's just data. We can describe about anything.
+
+  The following ensures nginx is installed, user is present, and the service is running.
+
+  ::
+    
+    pkg:
+      - installed
+    service:
+      - running
+      - require:
+        - pkg: nginx
+    user.present:
+      - shell: /bin/bash
+      - home: /usr/share/nginx
+      - uid: 498
+      - gid: 499
