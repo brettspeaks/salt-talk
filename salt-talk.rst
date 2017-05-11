@@ -60,4 +60,56 @@ The salt-key command has a lot of options, but the ones I use the most:
 
 \* NOTE: You don't have to do this on salt2 (thin client salt master) because auto key accept is turned on. Though, if
 rebuild a machine you may have to delete the thin client's public key and have it re-added to the list.
+
 ----
+
+So now profit?
+==============
+
+Targeting minions
+-----------------
+
+  .. code:: bash
+
+    sudo salt 'test1' test.ping
+
+What's going on here?
+---------------------
+    Well, from the salt-master we are pushing ping state from the test module to the minion and asking for it's response.
+
+    More information on the test module here https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.test.html
+
+salt vs salt-call
+-----------------
+  salt from the salt-master will **push** a given state to a minion.
+
+  VS.
+
+  salt-call from the minion which will **pull** the state from the master.
+
+---
+
+Minion Targeting (cont'd)
+=========================
+
+  *"Targeting minions is specifying which minions should run a command or execute a state by matching against
+  hostnames, or system information, or defined groups, or even combinations thereof."*
+
+  There's lots of ways to target your minions, https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
+
+  But, the most common method is using shell-style globbing targeting minions by minion id.
+
+  Ex.
+
+  .. code:: bash
+    sudo salt '*' test.ping
+    sudo salt 'edi*' test.ping
+    sudo salt 'vb[1,3]' test.ping
+    sudo salt 'ds[1-2][0-9]' test.ping
+
+  Or another useful way is using flat lists.
+
+  Ex.
+
+  .. code:: bash
+    sudo salt 'edi1,edi2,vb1,reports1' test.ping
