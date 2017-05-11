@@ -1,22 +1,18 @@
-:data-transition-duration: 2000
-:skip-help: true
+:data-transition-duration: 1000
+:skip-help: false
+:auto-console: true
 
-.. title: SaltStack Talk
+.. title: SaltStack
 
 ----
 
 SaltStack
 =======================
 
-From their website: 
+What is salt?
 
-"Salt is a new approach to infrastructure management built on a dynamic communication bus. Salt can be used for data-driven orchestration, remote execution for any infrastructure, configuration management for any app stack, and much more."
+  *"Salt is a new approach to infrastructure management built on a dynamic communication bus.
+  Salt can be used for data-driven orchestration, remote execution for any infrastructure,
+  configuration management for any app stack, and much more."*  
 
 ----
-
-What does this mean or how do we use it.
-========================
-
-*. We use it to configure cloud infrastructure.
-*. As well as thin client configuration.
-
