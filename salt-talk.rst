@@ -45,11 +45,18 @@ Installation and Configuring a minion
 But wait, this isn't working!
 =============================
 salt-key
-=========
+--------
   *"Salt-key executes simple management of Salt server public keys used for authentication."*
 
 It is basically salt's way of authenticating a minion. On inital connection, the minion will send the salt-master its
 public key so on the salt master we have to manually accept/reject the minion's key.\*
+
+The salt-key command has a lot of options, but the ones I use the most:
+  * sudo salt-key list - list all accepted, rejected, denied, and unaccepted keys.
+  * sudo salt-key -A - accept all unaccepted keys.
+  * sudo salt-key -a <key> - accept <key>.
+  * sudo salt-key -r <reject> - reject <reject>.
+  * sudo salt-key -d <delete> - delete the public key of <delete>
 
 \* NOTE: You don't have to do this on salt2 (thin client salt master) because auto key accept is turned on. Though, if
 rebuild a machine you may have to delete the thin client's public key and have it re-added to the list.
