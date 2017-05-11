@@ -87,7 +87,7 @@ salt vs salt-call
 
   salt-call from the minion which will **pull** the state from the master.
 
----
+----
 
 Minion Targeting (cont'd)
 =========================
@@ -95,21 +95,25 @@ Minion Targeting (cont'd)
   *"Targeting minions is specifying which minions should run a command or execute a state by matching against
   hostnames, or system information, or defined groups, or even combinations thereof."*
 
-  There's lots of ways to target your minions, https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
+There are lots of ways to target your minions, https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
 
-  But, the most common method is using shell-style globbing targeting minions by minion id.
+But, the most common method is using shell-style globbing targeting minions by minion id.
 
-  Ex.
+Ex.
 
-  .. code:: bash
-    sudo salt '*' test.ping
-    sudo salt 'edi*' test.ping
-    sudo salt 'vb[1,3]' test.ping
-    sudo salt 'ds[1-2][0-9]' test.ping
+.. code:: bash
 
-  Or another useful way is using flat lists.
+  sudo salt '*' test.ping
+  sudo salt 'edi*' test.ping
+  sudo salt 'vb[1,3]' test.ping
+  sudo salt 'ds[1-2][0-9]' test.ping
 
-  Ex.
+Or another useful way is using flat lists.
 
-  .. code:: bash
-    sudo salt 'edi1,edi2,vb1,reports1' test.ping
+Ex.
+
+.. code:: bash
+
+  sudo salt 'edi1,edi2,vb1,reports1' test.ping
+
+----
