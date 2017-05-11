@@ -152,7 +152,7 @@ SLS files are just data representations made up of lists, dictionaries, strings 
 
 These sls files are compiled together to form a state tree.
 
-A part (very small) of state tree for edi1 looks as follows:
+A (very small) part of state tree for edi1 looks as follows:
   top.sls
     edi1/init.sls
         batch-cron-dell-asp.sls
@@ -162,12 +162,12 @@ A part (very small) of state tree for edi1 looks as follows:
 Um... Ok so what?
 =================
 
-  Well becasue it's just data. We can describe about anything.
+Well becasue it's just data. We can describe about anything.
 
-  The following ensures nginx is installed, user is present, and the service is running.
+The following ensures nginx is installed, user is present, and the service is running.
 
   ::
-    
+
     pkg:
       - installed
     service:
