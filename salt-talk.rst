@@ -81,11 +81,8 @@ rebuild a machine you may have to delete the thin client's public key and have i
 
 ----
 
-So now profit?
-==============
-
-Targeting minions
------------------
+Minion Targeting
+=================
 
   .. code:: bash
 
@@ -93,7 +90,7 @@ Targeting minions
 
 What's going on here?
 ---------------------
-    Well, from the salt-master we are pushing ping state from the test module to the minion and asking for it's response.
+    Well, from the salt-master we are pushing ping state from the test module to the minion and asking for its response.
 
     More information on the test module here_.
 
@@ -109,7 +106,7 @@ salt vs salt-call
 
 ----
 
-:data-x: r300
+:data-x: r0
 :data-y: r2000
 
 Minion Targeting (cont'd)
