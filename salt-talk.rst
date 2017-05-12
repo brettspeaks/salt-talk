@@ -200,7 +200,7 @@ Some useful state functions.
 ----
 
 States templating, include, extends.
-=======
+====================================
 
 Templating
 ----------
@@ -210,3 +210,35 @@ Some sls modules may require programming logic or inline logic. We use the defau
 .. _jinja: http://jinja.pocoo.org/docs/2.9/
 
 It's very similar to other templating languages, pug, handlebars, etc., where where you have logic constructs and loops.
+
+An example how we use jinja to config phones.
+
+\*In this example, note the use of grains. Grains are objects about the
+minion made available to the templating system. We look at id here, but could target on hostname, os type, etc.
+
+    .. code:: yaml
+
+        {% if grains['id'] == 'ds54' %}
+        user1:
+        sipext: MPA160714170951
+        sippass: abc123
+        corvisa_sipext: 1181
+        corvisa_sippass: quaNzbf9GSJ3wDK1Tj5FPZ
+        {% endif %}
+
+  Or you could do something like this.
+
+    .. code:: yaml
+
+        {% for usr in ['moe','larry','curly'] %}
+        {{ usr }}:
+          user.present
+        {% endfor %}
+
+
+Includes
+--------
+
+
+Extends
+-------
