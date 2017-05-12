@@ -109,6 +109,9 @@ salt vs salt-call
 
 ----
 
+:data-x: r300
+:data-y: r2000
+
 Minion Targeting (cont'd)
 =========================
 
@@ -137,7 +140,7 @@ Ex.
 
 .. code:: bash
 
-  sudo salt 'edi1,edi2,vb1,reports1' test.ping
+  sudo salt -L 'edi1,edi2,vb1,reports1' test.ping
 
 ----
 
@@ -184,8 +187,13 @@ The following ensures nginx is installed, user is present, and the service is ru
         - uid: 498
         - gid: 499
 
-Some useful state functions.
+----
 
+:data-x: r0
+:data-y: r-1000
+
+Some useful state functions.
+----------------------------
   ::
 
     sudo salt '*' state.highstate
@@ -204,7 +212,7 @@ Some useful state functions.
 ----
 
 States templating, include, and extends.
-====================================
+========================================
 
 Templating
 ----------
@@ -239,6 +247,10 @@ minion made available to the templating system. We look at id here, but could ta
           user.present
         {% endfor %}
 
+----
+
+:data-x: r0
+:data-y: r1000
 
 Includes
 --------
@@ -269,5 +281,3 @@ Extends
             - running
             - watch:
               - file: /etc/nginx/servers/*
-
-----
