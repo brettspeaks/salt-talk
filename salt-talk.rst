@@ -21,11 +21,14 @@ What is salt?
 Installation and Configuring a minion
 =====================================
 
-1. Install with apt-get
+If you use any of our custom gce images you do not need to complete these steps as salt-minion is part of our base
+image.
+
+1. Install with yum/apt-get
 
   .. code:: bash
 
-    sudo apt-get install salt-minion
+    sudo yum install salt-minion
 
 2. Configure the minion to talk to the salt master.
 
@@ -33,13 +36,13 @@ Installation and Configuring a minion
 
     sudo vi /etc/salt/minion
 
+    salt-master: salt1
+
 3. Restart salt-minion
 
   .. code:: bash
 
     sudo service restart salt-minion
-
-4. Profit
 
 ----
 
