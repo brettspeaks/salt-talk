@@ -21,8 +21,8 @@ What is salt?
 Installation and Configuring a minion
 =====================================
 
-If you use any of our custom gce images you do not need to complete these steps as salt-minion is part of our base
-image.
+Note: Skip this if you use any of our custom gce images (ex. entos-7-bare-20160817) you do not need to complete these
+steps as salt-minion is part of our base image.
 
 1. Install with yum/apt-get
 
