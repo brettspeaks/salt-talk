@@ -310,7 +310,7 @@ Common examples.
     sudo salt 'edi1' grains.get saltversion
 
 The grains are then exposed to the templating language as we saw in our previous example or you can use them to target
-specific minions.
+specific minions using the -G option.
 
 ----
 
