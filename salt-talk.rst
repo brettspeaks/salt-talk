@@ -18,31 +18,31 @@ What is salt?
 
 ----
 
-Installation and Configuring a minion
+Installing and Configuring a minion
 =====================================
 
-Note: Skip this if you use any of our custom gce images (ex. entos-7-bare-20160817) you do not need to complete these
+Note: Skip this if you use any of our custom gce images (ex. ``centos-7-bare-20160817``) you do not need to complete these
 steps as salt-minion is part of our base image.
 
 1. Install with yum/apt-get
 
-  .. code:: bash
+    .. code:: bash
 
-    sudo yum install salt-minion
+      sudo yum install salt-minion
 
-2. Configure the minion to talk to the salt master.
+#. Configure the minion to talk to the salt master.
 
-  .. code:: bash
+    .. code:: bash
 
-    sudo vi /etc/salt/minion
+      sudo vi /etc/salt/minion
 
-    salt-master: salt1
+      salt-master: salt1
 
-3. Restart salt-minion
+#. Restart salt-minion
 
-  .. code:: bash
+    .. code:: bash
 
-    sudo service restart salt-minion
+      sudo service restart salt-minion
 
 ----
 
@@ -115,7 +115,7 @@ Minion Targeting (cont'd)
   hostnames, or system information, or defined groups, or even combinations thereof."*
 
 
-There are lots of ways to target_ your minions, but the most common method is using `shell-style`
+There are lots of ways to target_ your minions, but the most common method is using ``shell-style``
 globbing targeting minions by minion id.
 
 .. _target: https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
