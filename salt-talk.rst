@@ -140,6 +140,9 @@ Ex.
 
 ----
 
+:data-x: r1000
+:data-y: r0
+
 States and SLS files
 ====================
 
@@ -161,6 +164,9 @@ A (very small) part of state tree for edi1 looks as follows:
         batch-cron-dell-asp.sls
 
 ----
+
+:data-x: r0
+:data-y: r1000
 
 Um... Ok so what?
 =================
@@ -186,7 +192,7 @@ The following ensures nginx is installed, user is present, and the service is ru
 ----
 
 :data-x: r0
-:data-y: r2000
+:data-y: r1000
 
 Some useful state functions.
 ----------------------------
