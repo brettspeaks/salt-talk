@@ -209,4 +209,4 @@ Some sls modules may require programming logic or inline logic. We use the defau
 
 .. _jinja: http://jinja.pocoo.org/docs/2.9/
 
-It's very similar to other templating languages, pug, handlebars, etc where where you have logic constructs and loops.
+It's very similar to other templating languages, pug, handlebars, etc., where where you have logic constructs and loops.
