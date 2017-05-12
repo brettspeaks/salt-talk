@@ -237,9 +237,9 @@ minion made available to the templating system. We look at id here, but could ta
         {% if grains['id'] == 'ds54' %}
         user1:
         sipext: MPA160714170951
-        sippass: abc123
+        sippass: plivo_password
         corvisa_sipext: 1181
-        corvisa_sippass: quaNzbf9GSJ3wDK1Tj5FPZ
+        corvisa_sippass: corvisa_password
         {% endif %}
 
   Or you could do something like this.
@@ -309,9 +309,26 @@ Common examples.
     sudo salt 'edi1' grains.ls
     sudo salt 'edi1' grains.get saltversion
 
-The grains are then exposed to the templating language as we saw in our previous example.
+The grains are then exposed to the templating language as we saw in our previous example or you can use them to target
+specific minions.
 
 ----
 
 :data-x: r2000
 :data-y: r0
+
+And finally salt pillars
+========================
+
+  *"Pillar is an interface for Salt designed to offer global values that can be distributed to minions.
+  Pillar data is managed in a similar way as the Salt State Tree."*
+
+Pillar are set up by default /srv/pillar.
+
+Some common pillar commands
+
+  ::
+
+    sudo salt 'edi1' pillar.items
+    sudo salt 'edi1' pillar.get git
+    sudo salt 'edi1' state.apply pillar='{"cheese": "cheddar"}'
