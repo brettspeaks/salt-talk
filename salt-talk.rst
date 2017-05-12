@@ -108,8 +108,8 @@ salt vs salt-call
 :data-x: r0
 :data-y: r2000
 
-Minion Targeting (cont'd)
-=========================
+Minion Targeting
+================
 
   *"Targeting minions is specifying which minions should run a command or execute a state by matching against
   hostnames, or system information, or defined groups, or even combinations thereof."*
@@ -120,23 +120,18 @@ globbing targeting minions by minion id.
 
 .. _target: https://docs.saltstack.com/en/latest/topics/targeting/#advanced-targeting-methods
 
+        .. code:: bash
 
-Ex.
-
-.. code:: bash
-
-  sudo salt '*' test.ping
-  sudo salt 'edi*' test.ping
-  sudo salt 'vb[1,3]' test.ping
-  sudo salt 'ds[1-2][0-9]' test.ping
+          sudo salt '*' test.ping
+          sudo salt 'edi*' test.ping
+          sudo salt 'vb[1,3]' test.ping
+          sudo salt 'ds[1-2][0-9]' test.ping
 
 Or another useful way is using flat lists.
 
-Ex.
+        .. code:: bash
 
-.. code:: bash
-
-  sudo salt -L 'edi1,edi2,vb1,reports1' test.ping
+          sudo salt -L 'edi1,edi2,vb1,reports1' test.ping
 
 ----
 
