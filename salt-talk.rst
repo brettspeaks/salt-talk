@@ -152,7 +152,7 @@ It's just data.
 ---------------
 
 SLS files are just data representations made up of lists, dictionaries, strings and numbers. Python stuff you're all
-familiar with.
+used to.
 
 These sls files are compiled together to form a state tree.
 
