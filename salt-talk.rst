@@ -106,7 +106,7 @@ salt vs salt-call
 ----
 
 :data-x: r0
-:data-y: r1000
+:data-y: r2000
 
 Minion Targeting (cont'd)
 =========================
@@ -140,7 +140,7 @@ Ex.
 
 ----
 
-:data-x: r1000
+:data-x: r2000
 :data-y: r0
 
 States and SLS files
@@ -168,14 +168,13 @@ A (very small) part of state tree for edi1 looks as follows:
 :data-x: r0
 :data-y: r1000
 
-Um... Ok so what?
-=================
+And becasue it's just data.
+---------------------------
 
-Well becasue it's just data. We can describe about anything.
-
-The following ensures nginx is installed, user is present, and the service is running.
+We can describe about anything. The following ensures nginx is installed, user is present, and the service is running.
 
   .. code:: yaml
+
     nginx:
       pkg:
         - installed
@@ -213,7 +212,7 @@ Some useful state functions.
 
 ----
 
-:data-x: r1000
+:data-x: r2000
 :data-y: r0
 
 States templating, include, and extends.
@@ -286,3 +285,33 @@ Extends
             - running
             - watch:
               - file: /etc/nginx/servers/*
+
+----
+
+:data-x: r2000
+:data-y: r0
+
+Grains
+======
+
+  *"Salt comes with an interface to derive information about the underlying system. This is called the grains interface,
+  because it presents salt with grains of information. Grains are collected for the operating system, domain name,
+  IP address, kernel, OS type, memory, and many other system properties."*
+
+Here you can find more information on grains_.
+
+.. _grains: https://docs.saltstack.com/en/latest/topics/grains/
+
+Common examples.
+
+  ::
+
+    sudo salt 'edi1' grains.ls
+    sudo salt 'edi1' grains.get saltversion
+
+The grains are then exposed to the templating language as we saw in our previous example.
+
+----
+
+:data-x: r2000
+:data-y: r0
