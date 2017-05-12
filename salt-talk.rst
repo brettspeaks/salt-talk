@@ -1,6 +1,6 @@
 :data-transition-duration: 1000
-:skip-help: false
-:auto-console: true
+:skip-help: False
+:auto-console: True
 :css: css/presentation.css
 
 .. title: SaltStack
@@ -48,6 +48,7 @@ steps as salt-minion is part of our base image.
 
 But wait, this isn't working!
 =============================
+
 salt-key
 --------
   *"Salt-key executes simple management of Salt server public keys used for authentication."*
@@ -63,7 +64,7 @@ The salt-key command has a lot of options, but the ones I use the most:
                         "rejected" will list rejected keys. "den" or "denied"
                         will list denied keys. Finally, "all" will list all
                         keys.
-    -L                  List all public keys. (Deprecated: use "--list all")
+    --list-all          List all public keys.
     -a ACCEPT           Accept the specified public key (use --include-all to
                         match rejected keys in addition to pending keys).
                         Globs are supported.
@@ -71,8 +72,6 @@ The salt-key command has a lot of options, but the ones I use the most:
     -r REJECT           Reject the specified public key (use --include-all to
                         match accepted keys in addition to pending keys).
                         Globs are supported.
-    -p PRINT            Print the specified public key
-    -P                  Print all public keys
     -d DELETE           Delete the specified key. Globs are supported.
 
 
@@ -107,7 +106,7 @@ salt vs salt-call
 ----
 
 :data-x: r0
-:data-y: r2000
+:data-y: r1000
 
 Minion Targeting (cont'd)
 =========================
@@ -187,7 +186,7 @@ The following ensures nginx is installed, user is present, and the service is ru
 ----
 
 :data-x: r0
-:data-y: r-1000
+:data-y: r2000
 
 Some useful state functions.
 ----------------------------
@@ -207,6 +206,9 @@ Some useful state functions.
         Run one specific state given a state id and a module.
 
 ----
+
+:data-x: r1000
+:data-y: r0
 
 States templating, include, and extends.
 ========================================
