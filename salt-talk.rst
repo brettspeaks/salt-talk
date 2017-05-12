@@ -203,7 +203,7 @@ Some useful state functions.
 
 ----
 
-States templating, include, extends.
+States templating, include, and extends.
 ====================================
 
 Templating
