@@ -170,19 +170,19 @@ Well becasue it's just data. We can describe about anything.
 
 The following ensures nginx is installed, user is present, and the service is running.
 
-  ::
-
-    pkg:
-      - installed
-    service:
-      - running
-      - require:
-        - pkg: nginx
-    user.present:
-      - shell: /bin/bash
-      - home: /usr/share/nginx
-      - uid: 498
-      - gid: 499
+  .. code:: yaml
+    nginx:
+      pkg:
+        - installed
+      service:
+        - running
+        - require:
+          - pkg: nginx
+      user.present:
+        - shell: /bin/bash
+        - home: /usr/share/nginx
+        - uid: 498
+        - gid: 499
 
 Some useful state functions.
 
@@ -242,7 +242,32 @@ minion made available to the templating system. We look at id here, but could ta
 
 Includes
 --------
+    A super helpful feature which lets us break state trees into smaller more manageable and modular parts.
 
+    An example include statement for edi1:
+
+      .. code:: yaml
+
+            include:
+              - .batch-cron
+              - .batch-cron-backoffice
+              - .batch-cron-ge
+              ...
 
 Extends
 -------
+
+  You can also extend previous declarations by using extend. From our previous nginx example...
+
+    .. code:: yaml
+
+      include:
+        - prod/webserver/nginx
+      extend:
+        nginx:
+          service:
+            - running
+            - watch:
+              - file: /etc/nginx/servers/*
+
+----
